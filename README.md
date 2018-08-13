@@ -1,10 +1,10 @@
-# Evassist
+# EvAssist
 
 This web app was designed for photographers to allow them to easily create and catalog their events, essential shots, to-do's and 'must-haves'.
 
 ## Installation
 
-Simply clone this this repository.
+Simply clone this repository.
 
 And then execute:
 
