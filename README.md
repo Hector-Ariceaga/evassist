@@ -16,7 +16,7 @@ Finally, run:
 
 ## Usage
 
-Start by registering an account so you can log in and save your events and tasks. By having an account you can also edit and delete your own events and tasks.
+Start by registering an account so you can log in and save your events and tasks. By having an account you can also create, edit and delete your own events and tasks.
 
 
 ## Contributing
