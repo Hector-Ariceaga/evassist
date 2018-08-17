@@ -1,11 +1,17 @@
 class UserController < ApplicationController
+  use Rack::Flash
 
   get '/' do
     erb :index
   end
 
   get '/signup' do
-    erb :'/users/new'
+    if Helpers.logged_in?(session)
+      flash[:message] = "You are already signed up!"
+      redirect '/events'
+    else
+      erb :'/users/new'
+    end
   end
 
   post '/signup' do
@@ -20,7 +26,12 @@ class UserController < ApplicationController
   end
 
   get '/login' do
-    erb :'users/login'
+    if Helpers.logged_in?(session)
+      flash[:message] = "You are already logged in!"
+      redirect '/events'
+    else
+      erb :'users/login'
+    end
   end
 
   post '/login' do
@@ -30,13 +41,18 @@ class UserController < ApplicationController
       session[:user_id] = user.id
       redirect "/events"
     else
-      redirect "/"
+      flash[:message] = "Username or password incorrect. Please try again."
+      redirect "/login"
     end
   end
 
   get '/users/:slug' do
-    @user = User.find_by_slug(params[:slug])
-    erb :'users/show'
+    if Helpers.logged_in?(session)
+      @user = User.find_by_slug(params[:slug])
+      erb :'users/show'
+    else
+      redirect '/login'
+    end
   end
 
   get '/logout' do
