@@ -1,0 +1,12 @@
+<h1>Edit the event using the form below.</h1>
+
+<form method="post">
+  <input type="hidden" id="hidden" name="_method" value="patch">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="event[name]" value="<%=@event.name%>">
+  <br></br>
+  <label for="description">Description:</label><br>
+  <input type="text" id="description" name="event[description]" value="<%=@event.description%>">
+  <br></br>
+  <input type="submit" value="Edit Event">
+</form>

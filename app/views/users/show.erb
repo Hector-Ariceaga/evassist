@@ -2,8 +2,7 @@
 
 <% if !@user.events.empty? %>
   <%@user.events.each do |event|%>
-    <%= event.name %>
-    <p><%= event.description %></p>
+    <h3><%= event.name %> - <%= event.description %></h3>
   <% end %>
 <% else %>
   <h3>You don't have any events yet. Try adding some!</h3>

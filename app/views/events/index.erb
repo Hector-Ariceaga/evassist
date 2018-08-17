@@ -1,0 +1,6 @@
+<h1>Explore the events of your fellow photographers!</h1>
+
+<% Event.all.each do |event| %>
+  <h3><%= event.name %></h3>
+  <%= event.description %>
+<% end %>

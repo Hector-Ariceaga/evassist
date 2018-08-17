@@ -1,0 +1,7 @@
+<h1><%= @event.name%><h1>
+<h3><%= @event.description %></h3>
+
+<form method="post" action="/events/<%=@event.id%>">
+  <input type="hidden" id="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Event">
+</form>
