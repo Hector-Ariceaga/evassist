@@ -7,8 +7,12 @@ gem 'rake'
 gem 'require_all'
 gem 'thin'
 gem 'bcrypt'
-gem 'pry'
-gem 'tux'
 gem 'sqlite3'
 gem 'shotgun'
 gem 'rack-flash3'
+
+group :test do
+  gem 'database_cleaner', '~> 1.7'
+  gem 'pry'
+  gem 'tux'
+end

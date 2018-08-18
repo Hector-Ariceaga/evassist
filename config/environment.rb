@@ -2,6 +2,8 @@ ENV["SINATRA_ENV"] ||= "development"
 
 require 'bundler/setup'
 require 'rack-flash'
+require 'database_cleaner'
+
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
 ActiveRecord::Base.establish_connection(
