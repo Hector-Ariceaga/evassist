@@ -41,9 +41,13 @@ class EventController < ApplicationController
   end
 
   get '/events/:id/edit' do
+    @event = Event.find_by_id(params[:id])
     if Helpers.logged_in?(session)
-      @event = Event.find_by_id(params[:id])
-      erb :'/events/edit'
+      if Helpers.current_user(session).id.equal?(@event.user.id)
+        erb :'/events/edit'
+      else
+        flash[:message] = "Sorry, you can't edit tasks you don't own."
+      end
     else
       flash[:message] = "Please log in to view content."
       redirect '/login'
