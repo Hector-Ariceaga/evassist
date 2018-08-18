@@ -1,0 +1,15 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<h1><%= @event.name %> - <%= @event.description %></h1>
+
+<% if !@event.tasks.empty? %>
+  <ol>
+    <% @event.tasks.each do |task| %>
+      <li><%= task.name %></li>
+    <% end %>
+  </ol>
+<% else %>
+  <h3>You don't have any tasks for this event yet. Try adding some!</h3>
+<% end %>

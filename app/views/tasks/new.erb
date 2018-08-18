@@ -1,0 +1,15 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<h1>Create a new task for <%= @event.name %></h1>
+
+<form method="post" action="/events/<%=@event.id%>/tasks">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="task[name]" require title="Name of task">
+  <br></br>
+  <label for="description">Description:</label><br>
+  <textarea rows="4" cols="50" id="description" wrap="hard" name="task[description]"></textarea>
+  <br></br>
+  <input type="submit" value="Create task">
+</form>

@@ -1,0 +1,16 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<h1>Edit the task using the form below.</h1>
+
+<form method="post">
+  <input type="hidden" id="hidden" name="_method" value="patch">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="task[name]" value="<%=@task.name%>">
+  <br></br>
+  <label for="description">Description:</label><br>
+  <input type="textarea" id="description" name="task[description]" value="<%=@task.description%>">
+  <br></br>
+  <input type="submit" value="Edit Task">
+</form>

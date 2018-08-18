@@ -1,0 +1,13 @@
+<% if flash.has?(:message) %>
+  <%= flash[:message] %>
+<% end %>
+
+<h1><%= @task.name %><h1>
+<h3><%= @task.description %></h3>
+
+<% if Helpers.current_user(session).id.equal?(@task.user.id)%>
+  <form method="post" action="/tasks/<%=@task.id%>">
+    <input type="hidden" id="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Task">
+  </form>
+<% end %>
