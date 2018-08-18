@@ -6,11 +6,15 @@
 
 <% if !@user.events.empty? %>
   <%@user.events.each do |event|%>
-    <h3><%= event.name %> - <%= event.description %></h3>
+    <h3><a href="/events/<%=event.id%>"><%= event.name %></a> - <%= event.description %></h3>
     <% if event.datetime %>
-      <h4><%= event.datetime %>
+      <h4><%= event.datetime %><br>
     <% end %>
   <% end %>
 <% else %>
   <h3><%= @user.username %> doesn't have any events yet.</h3>
 <% end %>
+
+<br></br>
+<a href="/events/new">Make a new event</a><br>
+<a href="/events">Return to all events</a>

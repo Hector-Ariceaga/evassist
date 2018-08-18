@@ -2,14 +2,18 @@
   <%= flash[:message] %>
 <% end %>
 
-<h1><%= @event.name %> - <%= @event.description %></h1>
+<h1><a href="/events/<%=@event.id%>"><%= @event.name %></a> - <%= @event.description %></h1>
 
 <% if !@event.tasks.empty? %>
   <ol>
     <% @event.tasks.each do |task| %>
-      <li><%= task.name %></li>
+      <li><a href="/tasks/<%=task.id%>"><%= task.name %></a></li>
     <% end %>
   </ol>
 <% else %>
   <h3>You don't have any tasks for this event yet. Try adding some!</h3>
+<% end %>
+
+<% if Helpers.current_user(session).id.equal?(@event.user.id)%>
+  <a href="/events/<%=@event.id%>/tasks/new">Make a new task</a>
 <% end %>

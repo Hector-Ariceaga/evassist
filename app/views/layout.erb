@@ -7,6 +7,17 @@
     <title>EvAssist</title>
   </head>
   <body>
+    <nav>
+      <% if Helpers.logged_in?(session) %>
+        <a href="/events"> All Events </a>
+        <a href="/users/<%=Helpers.current_user(session).slug%>"> Your Events </a>
+        <a href="/events/new"> Create New Event </a>
+        <a href="/logout"> Log Out </a>
+      <% else %>
+        <a href="/login"> Sign In </a>
+        <a href="/signup"> Register </a>
+      <%end %>
+    </nav>
 
     <%= yield %>
 

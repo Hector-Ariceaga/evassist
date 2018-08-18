@@ -7,7 +7,7 @@
 <form method="post">
   <input type="hidden" id="hidden" name="_method" value="patch">
   <label for="name">Name:</label><br>
-  <input type="text" id="name" name="event[name]" value="<%=@event.name%>">
+  <input type="text" id="name" name="event[name]" require value="<%=@event.name%>">
   <br></br>
   <label for="datetime">Date and Time:</label><br>
   <input type="text" id="datetime" name="event[datetime]" value="<%=@event.datetime%>">
@@ -17,3 +17,4 @@
   <br></br>
   <input type="submit" value="Edit Event">
 </form>
+<br></br>

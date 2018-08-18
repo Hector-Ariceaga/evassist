@@ -3,6 +3,7 @@ class EventController < ApplicationController
 
   get '/events' do
     if Helpers.logged_in?(session)
+      @user = User.find_by_id(session[:user_id])
       erb :'/events/index'
     else
       flash[:message] = "Please log in to view content."
@@ -58,6 +59,7 @@ class EventController < ApplicationController
     event = Event.find_by_id(params[:id])
     if !params[:event][:name].empty?
       event.update(params[:event])
+      flash[:message] = "Successfully updated event."
       redirect "/events/#{event.id}"
     else
       flash[:message] = "Edit was unsucessful. Please try again."
