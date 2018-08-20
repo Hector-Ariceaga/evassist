@@ -42,7 +42,7 @@ class UserController < ApplicationController
       redirect "/events"
     else
       flash[:message] = "Username or password incorrect. Please try again."
-      redirect "/login"
+      erb :'users/login'
     end
   end
 

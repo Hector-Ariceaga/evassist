@@ -11,5 +11,6 @@
     <input type="submit" value="Delete Task">
   </form>
 <% end %>
-
+<br></br>
+<a href="/tasks/<%=@task.id%>/edit">Edit this task</a><br>
 <a href="/events/<%=@task.event.id%>/tasks">Return to this event's tasks</a>

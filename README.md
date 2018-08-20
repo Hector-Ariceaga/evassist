@@ -8,6 +8,7 @@ Simply clone this repository.
 
 And then execute:
 
+    $ bundle install
     $ rake db:migrate
 
 Finally, run:
