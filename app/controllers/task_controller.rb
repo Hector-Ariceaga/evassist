@@ -1,3 +1,4 @@
+require 'pry'
 class TaskController < ApplicationController
 
   get '/events/:id/tasks' do
@@ -8,6 +9,21 @@ class TaskController < ApplicationController
       flash[:message] = "Please log in to view content."
       redirect '/login'
     end
+  end
+
+  patch '/events/:id/tasks' do
+    @event = Event.find_by_id(params[:id])
+    @event.tasks.each do |task|
+      if params[:task]
+          task.completed = true
+          task.save
+      else
+          task.completed = false
+          task.save
+      end
+    end
+    flash[:message] = "Sucessfully saved list status."
+    redirect "/events/#{@event.id}/tasks"
   end
 
   get '/events/:id/tasks/new' do

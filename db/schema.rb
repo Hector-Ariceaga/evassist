@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_08_15_172829) do
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.boolean "completed"
     t.integer "event_id"
     t.integer "user_id"
   end
