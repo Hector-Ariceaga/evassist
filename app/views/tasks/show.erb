@@ -4,6 +4,9 @@
 
 <h1><%= @task.name %><h1>
 <h3><%= @task.description %></h3>
+<% if @task.completed %>
+  <%= "COMPLETED" %>
+<% end %>
 
 <% if Helpers.current_user(session).id.equal?(@task.user.id)%>
   <form method="post" action="/tasks/<%=@task.id%>">

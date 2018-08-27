@@ -11,21 +11,6 @@ class TaskController < ApplicationController
     end
   end
 
-  patch '/events/:id/tasks' do
-    @event = Event.find_by_id(params[:id])
-    @event.tasks.each do |task|
-      if params[:task]
-          task.completed = true
-          task.save
-      else
-          task.completed = false
-          task.save
-      end
-    end
-    flash[:message] = "Sucessfully saved list status."
-    redirect "/events/#{@event.id}/tasks"
-  end
-
   get '/events/:id/tasks/new' do
     @event = Event.find_by_id(params[:id])
     if Helpers.logged_in?(session)
@@ -42,6 +27,7 @@ class TaskController < ApplicationController
 
   post '/events/:id/tasks' do
     task = Task.new(params[:task])
+    task.completed = !!params[:completed]
     task.event = Event.find_by_id(params[:id])
     task.user_id = session[:user_id]
     if task.save
@@ -80,6 +66,7 @@ class TaskController < ApplicationController
   patch '/tasks/:id/edit' do
     task = Task.find_by_id(params[:id])
     if !params[:task][:name].empty?
+      task.completed = !!params[:completed]
       task.update(params[:task])
       redirect "/tasks/#{task.id}"
     else

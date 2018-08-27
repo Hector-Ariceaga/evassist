@@ -11,6 +11,8 @@
   <br></br>
   <label for="description">Description:</label><br>
   <input type="textarea" id="description" name="task[description]" value="<%=@task.description%>">
+  <label for="completed">Done?</label>
+  <input type="checkbox" id="completed" name="completed" <%= @task.completed ? 'checked' : ""  %>
   <br></br>
   <input type="submit" value="Edit Task">
 </form>

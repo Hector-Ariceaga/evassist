@@ -6,13 +6,14 @@
 
 <% if !@event.tasks.empty? %>
   <ol>
-    <form method="post" action="/events/<%=@event.id%>/tasks">
-      <input type="hidden" id="hidden" name="_method" value="patch">
-      <% @event.tasks.each do |task| %>
-        <li><input id="task_status" type="checkbox" name="task[completed]" <%= 'checked' if !!task.completed%>><a href="/tasks/<%=task.id%>"><%= task.name %></a></li>
-      <% end %>
-      <input type="submit" value="Save">
-    </form>
+    <% @event.tasks.each do |task| %>
+      <li>
+        <a href="/tasks/<%=task.id%>"><%= task.name %></a>
+        <% if task.completed %>
+          <%= "- COMPLETED" %>
+        <% end %>
+      </li>
+    <% end %>
   </ol>
 <% else %>
   <h3>You don't have any tasks for this event yet. Try adding some!</h3>
