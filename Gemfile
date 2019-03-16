@@ -10,6 +10,7 @@ gem 'bcrypt'
 gem 'pg'
 gem 'shotgun'
 gem 'rack-flash3'
+gem 'rails_12factor'
 
 group :development do 
   gem 'sqlite3'
