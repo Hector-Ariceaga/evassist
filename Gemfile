@@ -13,7 +13,7 @@ gem 'rack-flash3'
 gem 'rails_12factor'
 
 group :development do 
-  gem 'sqlite3'
+  gem 'sqlite3',  '~> 1.3', '>= 1.3.6'
 end
 
 group :test do
