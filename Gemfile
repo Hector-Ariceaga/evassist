@@ -16,7 +16,6 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 1.7'
-  gem 'pry'
   gem 'tux'
 end
 
