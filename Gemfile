@@ -7,7 +7,7 @@ gem 'rake'
 gem 'require_all'
 gem 'thin'
 gem 'bcrypt'
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.6'
 gem 'shotgun'
 gem 'rack-flash3'
 
