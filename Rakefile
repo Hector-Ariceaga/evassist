@@ -1,4 +1,4 @@
-#ENV["SINATRA_ENV"] ||= "development" ##why duplicated here?
+ENV["SINATRA_ENV"] ||= "development"
 
 require_relative './config/environment'
 require 'sinatra/activerecord/rake'
