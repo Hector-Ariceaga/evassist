@@ -6,13 +6,13 @@ default: &default
   timeout: 5000
 
 development:
-  adapter: sqlite3
-  database: db/development.sqlite3
+  adapter: postgresql
+  database: evassist_development
 
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
+  adapter: postgresql
+  database: evassist_test
 
 production:
   <<: *default
-  database: mydb
+  database: evassist_production
