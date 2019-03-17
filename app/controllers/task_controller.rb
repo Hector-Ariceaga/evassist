@@ -1,4 +1,3 @@
-require 'pry'
 class TaskController < ApplicationController
 
   get '/events/:id/tasks' do
