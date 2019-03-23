@@ -1,20 +1,19 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
+<div class="container">
+<div>
+  <h1><%= @event.name %><h1>
+  <% if @event.datetime %>
+    <h2><%= @event.datetime %></h3>
+  <% end %>
+  <h3><%= @event.description %></h3>
+</div>
 
-<h1><%= @event.name %><h1>
-<% if @event.datetime %>
-  <h2><%= @event.datetime %></h3>
-<% end %>
-<h3><%= @event.description %></h3>
-<a href="/events/<%=@event.id%>/tasks">View this events tasks</a><br>
-<a href="/events/<%=@event.id%>/tasks/new">Create new tasks for this event</a>
-<br></br>
-<br></br>
+<a href="/events/<%=@event.id%>/tasks" role="button" class="btn btn-light">View this events tasks</a>
+<a href="/events/<%=@event.id%>/tasks/new" role="button" class="btn btn-light">Create new tasks for this event</a></button>
 <% if Helpers.current_user(session).id.equal?(@event.user.id)%>
-  <a href="/events/<%=@event.id%>/edit">Edit this event</a><br>
+  <a href="/events/<%=@event.id%>/edit" role="button" class="btn btn-light">Edit this event</a>
   <form method="post" action="/events/<%=@event.id%>">
     <input type="hidden" id="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Event">
+    <input type="submit" value="Delete Event" role="button" class="btn btn-danger">
   </form>
 <% end %>
+</div>

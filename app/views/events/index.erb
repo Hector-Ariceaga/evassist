@@ -1,8 +1,6 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
-
-<h1>Explore the events of your fellow photographers!</h1>
+<div class="text-center">
+  <h1>Explore the events of your fellow photographers!</h1>
+</div>
 
 <% Event.all.each do |event| %>
   <h3><a href="/events/<%=event.id%>"><%= event.name %></a></h3>

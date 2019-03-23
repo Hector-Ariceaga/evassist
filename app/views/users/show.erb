@@ -1,15 +1,13 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
-
-<h1><%= @user.username %>'s Events</h1>
+<div class='text-center'><h1><%= @user.username %>'s events</h1></div>
 
 <% if !@user.events.empty? %>
+  <ol>
   <%@user.events.each do |event|%>
-    <h3><a href="/events/<%=event.id%>"><%= event.name %></a> - <%= event.description %></h3>
+    <h3><li><a href="/events/<%=event.id%>"><%= event.name %></a> - <%= event.description %></h3></li>
     <% if event.datetime %>
       <h4><%= event.datetime %><br>
     <% end %>
+  </ol>
   <% end %>
 <% else %>
   <h3><%= @user.username %> doesn't have any events yet.</h3>

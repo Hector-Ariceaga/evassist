@@ -1,7 +1,3 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
-
 <h1><a href="/events/<%=@event.id%>"><%= @event.name %></a> - <%= @event.description %></h1>
 
 <% if !@event.tasks.empty? %>

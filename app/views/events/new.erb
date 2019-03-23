@@ -1,19 +1,19 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
-
 <h1>Create a new event</h1>
 
-<form method="post" action="/events">
-  <label for="name">Name:</label><br>
-  <input type="text" id="name" name="event[name]" title="Name of Event" require>
-  <br></br>
-  <label for="datetime">Date and Time:</label><br>
-  <input type="text" id="datetime" name="event[datetime]">
-  <br></br>
-  <label for="description">Description:</label><br>
-  <input type="text" id="description" name="event[description]">
-  <br></br>
-  <input type="submit" value="Create Event">
-</form>
-<br></br>
+<div class="col-md-4">
+  <form method="post" action="/events">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="event[name]" class="form-control" placeholder="Name" title="Name of event" require>
+    </div>
+    <div class="form-group">
+       <label for="datetime">Date and Time</label>
+       <input type="text" id="datetime" name="event[datetime]" class="form-control" placeholder="Date and/or time" >
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label><br>
+      <input type="text" id="description" name="event[description]" class="form-control" placeholder="Event description">
+    </div>
+    <button type="submit" class="btn btn-primary">Create Event</button>
+  </form>
+</div>
