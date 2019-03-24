@@ -14,5 +14,5 @@ test:
   database: evassist_test
 
 production:
-  <<: *default
+  adapter: postgresql
   database: evassist_production
