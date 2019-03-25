@@ -2,6 +2,8 @@
 
 This web app was designed for photographers to allow them to easily create and catalog their events, essential shots, to-do's and 'must-haves'.
 
+Checkout the video demo [here](https://www.youtube.com/watch?v=uu5b4FFbjIU).
+
 ## Installation
 
 Simply clone this repository.
@@ -9,7 +11,9 @@ Simply clone this repository.
 And then execute:
 
     $ bundle install
+    $ rake db:create
     $ rake db:migrate
+    $ rake db:seed
 
 Finally, run:
 
@@ -22,7 +26,7 @@ Start by registering an account so you can log in and save your events and tasks
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/'Hector-Ariceaga'/evassist. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Hector-Ariceaga/evassist. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
